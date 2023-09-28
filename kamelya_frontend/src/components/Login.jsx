@@ -6,8 +6,9 @@ import shareVideo from '../assets/share.mp4';
 import logo from '../assets/logowhite.png';
 import jwt_decode from 'jwt-decode';
 
+import { client } from './client';
 const Login = () => {
-
+  const navigate = useNavigate();
 
   return (
     <div className='flex justify-start items-center flex-col h-screen'>
@@ -40,8 +41,11 @@ const Login = () => {
                            _type: 'user',
                            userName: name,
                            image: picture
-                        }
-                       
+                        } 
+                        
+                        client.createIfNotExists(doc).then(() => {
+                            navigate("/", {replace : true})
+                        });                      
                     }}
                     onError={() => {
                         console.log('Login Failed');

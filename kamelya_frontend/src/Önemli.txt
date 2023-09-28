@@ -1,0 +1,5 @@
+sanity manage -> npx @sanity/cli manage
+sanity init -> npx @sanity/cli init
+bu şekilde çalışıyor. 
+
+npx @sanity/cli run yerine npm run dev kullan.
